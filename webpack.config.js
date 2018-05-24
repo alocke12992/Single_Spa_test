@@ -3,7 +3,9 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
+
 module.exports = {
+    mode: 'development',
     entry: {
         'root-application': 'src/root-application/root-application.js',
         'common-dependencies': [
@@ -35,15 +37,12 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'common-dependencies',
-        }),
         new ContextReplacementPlugin(
             /(.+)?angular(\\|\/)core(.+)?/,
             path.resolve(__dirname, '../src')
         )
     ],
-    devtools: 'source-map',
+    devtool: 'source-map',
     externals: [],
     devServer: {
         historyApiFallback: true
