@@ -1,14 +1,14 @@
-import {declareChildApplication, start} from 'single-spa';
+import * as singleSpa from 'single-spa';
 
-declareChildApplication("cool-app", loadCoolApp, isCoolAppActive);
+singleSpa.registerApplication('app-1', () => 
+    import ('../reactApp/reactApp.js'), pathPrefix('/reactApp')
+);
 
-start();
+singleSpa.start();
 
 // This is a loading function
-const loadCoolApp = () => {
-    return import("./cool-app/cool.app.js");
-}
-
-const isCoolAppActive = () => {
-    return window.location.hash.startsWith()
+const pathPrefix = (prefix) => {
+    return (location) => {
+        return location.pathname.startsWith(`${prefix}`);
+    }
 }
