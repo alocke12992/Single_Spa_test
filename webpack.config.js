@@ -19,8 +19,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
-        rules: [{
-            test: /\.js?$/,
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+          {
+            test: /\.js$/,
             exclude: [path.resolve(__dirname, 'node_modules')],
             loader: 'babel-loader',
           },

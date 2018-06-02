@@ -9,25 +9,19 @@ const reactLifecycles = singleSpaReact({
     rootComponent: Root,
     domElementGetter,
 })
-export function bootstrap(props){
-    return reactLifecycles.bootstrap(props);
-}
 
-export function mount(props){
-    return reactLifecycles.mount(props);
-}
+export const bootstrap = [
+    reactLifecycles.bootstrap,
+];
 
-export function unmount(props){
-    return reactLifecycles.unmount(props);
-}
+export const mount = [
+    reactLifecycles.mount,
+];
+
+export const unmount = [
+    reactLifecycles.unmount,
+];
 
 function domElementGetter() {
-    let element = document.getElementById('app1');
-    if (!element){
-        element = document.createElement('div');
-        element.id = 'app1'
-        document.body.appendChild(element);
-    }
-
-    return element
+    return document.getElementById('reactApp');
 }

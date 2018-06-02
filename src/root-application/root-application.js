@@ -1,9 +1,10 @@
-import * as singleSpa from 'single-spa';
+import {registerApplication, start} from 'single-spa';
 
-singleSpa.registerApplication('app-1', () => 
-    import ('../reactApp/reactApp.js'), pathPrefix('/reactApp'));
+registerApplication('navBar', () => import ('../navBar/navBar.js'), () => true);
+registerApplication('reactApp', () => import ('../reactApp/reactApp.js'), pathPrefix('/reactApp'));
 
-singleSpa.start();
+
+start();
 
 // This is a loading function
 function pathPrefix(prefix) {
