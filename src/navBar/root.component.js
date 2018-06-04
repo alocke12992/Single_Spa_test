@@ -26,6 +26,7 @@ function menuItems(){
     <div>
       <li><a onClick={() => this.navigateTo('/')}>Home</a></li>
       <li><a onClick={() => this.navigateTo('/reactApp')}>React</a></li>
+      <li><a onClick={() => this.navigateTo('/angular1')}>Angular 1</a></li>
     </div>
   )
 }
