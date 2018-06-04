@@ -29,6 +29,11 @@ module.exports = {
             exclude: [path.resolve(__dirname, 'node_modules')],
             loader: 'babel-loader',
           },
+            {
+                test: /\.html$/,
+                exclude: /node_modules|svelte/,
+                loader: 'html-loader',
+            },
         ],
     },
     node: {
