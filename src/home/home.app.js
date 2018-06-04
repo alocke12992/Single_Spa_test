@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
-import Home from './home.root.js';
+import Home from './root.component.js';
 
 const reactLifecycles = singleSpaReact({
   React,

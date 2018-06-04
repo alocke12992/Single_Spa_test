@@ -5,10 +5,5 @@ angular
 .module('single-spa-app')
 .component('root', {
   template,
-  controllerAs: 'vm',
-  controller($timeout){
-    const vm = this;
-    vm.styles = {}
-  }
 })
 
