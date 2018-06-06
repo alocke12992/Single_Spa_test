@@ -1,34 +1,32 @@
 import React from 'react'
+import {navigateToUrl} from 'single-spa'
+
 
 class NavBar extends React.Component{
 
-  
+  menuItems(){
+    return (
+      <div>
+        <li><a onClick={() => navigateToUrl('/')}>Home</a></li>
+        <li><a onClick={() => navigateToUrl('/reactApp')}>React</a></li>
+        <li><a onClick={() => navigateToUrl('/angular1')}>Angular 1</a></li>
+      </div>
+    )
+  }
   
   render(){
     return(
       <nav>
         <div className="nav-wrapper">
-          <a onClick={() => this.navigateTo('/')} className="brand-logo">single-spa</a>
+          <a onClick={() => navigateToUrl('/')} className="brand-logo">single-spa</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {menuItems.call(this)}
+            {this.menuItems()}
           </ul>
         </div>
       </nav>
     )
   }
-  
-  navigateTo(url){
-    window.history.pushState(null, null, url)
-  }  
 }
-function menuItems(){
-  return (
-    <div>
-      <li><a onClick={() => this.navigateTo('/')}>Home</a></li>
-      <li><a onClick={() => this.navigateTo('/reactApp')}>React</a></li>
-      <li><a onClick={() => this.navigateTo('/angular1')}>Angular 1</a></li>
-    </div>
-  )
-}
+
 
 export default NavBar

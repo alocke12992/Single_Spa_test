@@ -7,11 +7,7 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 module.exports = {
     mode: 'development',
     entry: {
-        'root-application': 'src/root-application/root-application.js',
-        'common-dependencies': [
-            'react',
-            'react-dom',
-        ],
+        'single-spa.config': 'src/root-application/single-spa.config.js',
     },
     output: {
         publicPath: '/dist/',
@@ -31,7 +27,7 @@ module.exports = {
           },
             {
                 test: /\.html$/,
-                exclude: /node_modules|svelte/,
+                exclude: /node_modules/,
                 loader: 'html-loader',
             },
         ],
