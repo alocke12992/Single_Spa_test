@@ -2,9 +2,18 @@ import React from 'react'
 import {navigateToUrl} from 'single-spa'
 
 
-class NavBar extends React.Component{
+const NavBar = () => (
+  <nav>
+    <div className="nav-wrapper">
+      <a onClick={() => navigateToUrl('/')} className="brand-logo">single-spa</a>
+      <ul id="nav-mobile" className="right hide-on-med-and-down">
+        {menuItems()}
+      </ul>
+    </div>
+  </nav>
+)
 
-  menuItems(){
+function menuItems(){
     return (
       <div>
         <li><a onClick={() => navigateToUrl('/')}>Home</a></li>
@@ -14,19 +23,6 @@ class NavBar extends React.Component{
     )
   }
   
-  render(){
-    return(
-      <nav>
-        <div className="nav-wrapper">
-          <a onClick={() => navigateToUrl('/')} className="brand-logo">single-spa</a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {this.menuItems()}
-          </ul>
-        </div>
-      </nav>
-    )
-  }
-}
 
 
 export default NavBar
